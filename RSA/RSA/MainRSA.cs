@@ -64,12 +64,14 @@ namespace RSA
             double wynik = 0;
 
             NumberBin Number = new NumberBin();
-            int Size = 3;
+            int Size = 15;
 
             NumberBin[] Primes = new NumberBin[2];
             Primes[0] = NumberBin.RandomBin(Size);
             Primes[1] = NumberBin.RandomBin(Size);
+
            
+
             int it = 1;
             int koniec = 5;
 
@@ -224,6 +226,8 @@ namespace RSA
                 if (E.TextNumber[m] == '1')
                 {
                     Result = NumberBin.Mul2Binary(Result, R);
+                    Div = BinaryDivideClass.Div2Binary(Result, N);
+                    Result.TextNumber = Div.Remainder;
                 }
                 R= NumberBin.Mul2Binary(R, R);
                 Div = BinaryDivideClass.Div2Binary(R, N);
@@ -258,6 +262,8 @@ namespace RSA
                 if (D.TextNumber[m] == '1')
                 {
                     Result = NumberBin.Mul2Binary(Result, R);
+                    Div = BinaryDivideClass.Div2Binary(Result, N);
+                    Result.TextNumber = Div.Remainder;
 
                 }
                 R = NumberBin.Mul2Binary(R, R);

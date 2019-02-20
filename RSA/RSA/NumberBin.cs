@@ -108,7 +108,7 @@ namespace RSA
         {
             TextNumber = "";
             DecNumber = 0;
-            Distance = 64; // dlugosc liczby w bitach ////////////////////
+            Distance = 100; // dlugosc liczby w bitach //////////////////////4*dlugosc klucza
         }
 
         public static NumberBin StringToInt(NumberBin Bin1)
@@ -217,6 +217,8 @@ namespace RSA
                     if (D.TextNumber[k] == '1')
                     {
                         Result = Mul2Binary(Result, Random);
+                        Div = BinaryDivideClass.Div2Binary(Result, Test);
+                        Result.TextNumber = Div.Remainder;
                     }
                     Random = Mul2Binary(Random, Random);
                     Div = BinaryDivideClass.Div2Binary(Random, Test);
